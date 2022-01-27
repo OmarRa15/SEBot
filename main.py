@@ -10,6 +10,9 @@ bot = telebot.TeleBot(API_KEY)
 @bot.message_handler(commands=['start'])
 def hello(message):
     log_message(message)
+    user_markup = telebot.types.ReplyKeyboardMarkup()
+    user_markup.row('/start','hi')
+    user_markup.row('/test','another Test','hop')
     rsp = "Hi There, Say Hi"
     bot.reply_to(message, rsp)
 
