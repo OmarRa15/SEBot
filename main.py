@@ -7,26 +7,27 @@ API_KEY = environ['TEL_API_KEY']
 bot = telebot.TeleBot(API_KEY)
 
 
-@bot.message_handler(commands=['Hello'])
+@bot.message_handler(commands=['start'])
 def hello(message):
     log_message(message)
-    bot.reply_to(message, "Hi There")
+    rsp = "Hi There, Say Hi"
+    bot.reply_to(message, rsp)
 
 
-@bot.message_handler(commands=['Hi'])
-def hello(message):
-    log_message(message)
-    bot.send_message(message.chat.id, "Hi Hi")
+# @bot.message_handler(commands=['Hi'])
+# def hello(message):
+#     log_message(message)
+#     bot.send_message(message.chat.id, "Hi Hi")
 
 
 def boolean_func(message):
-    return message.text.lower() == 'who are you'
+    return message.text.lower() == 'hi'
 
 
 @bot.message_handler(func=boolean_func)
-def whoami(message):
+def hi(message):
     log_message(message)
-    bot.send_message(message.chat.id, "I am SE Bot")
+    bot.send_message(message.chat.id, "Hi, I am SE Bot")
 
 
 bot.polling()
