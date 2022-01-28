@@ -14,7 +14,20 @@ def get_starting_keyboard():
     return starting_keyboard
 
 
+def get_learning_resources_keyboard():
+    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.row('CS111 Python', 'CS112 Java')
+    keyboard.row('SE 342 Software Architecture', 'SE 323 Modeling and Design')
+    keyboard.row('Back to start!')
+    return keyboard
+
+
+def start_boolean(message):
+    return message.text.lower() == 'back to start!'
+
+
 @bot.message_handler(commands=['start'])
+@bot.message_handler(func=start_boolean)
 def start(message):
     log_message(message)
     keyboard = get_starting_keyboard()
@@ -39,9 +52,7 @@ def resources_boolean(message):
 @bot.message_handler(func=resources_boolean)
 def resources(message):
     log_message(message)
-    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.row('CS111 Python', 'CS112 Java')
-    keyboard.row('SE 342 Software Architecture', 'SE 323 Modeling and Design')
+    keyboard = get_learning_resources_keyboard()
     bot.send_message(message.chat.id, "Here You go!", reply_markup=keyboard)
 
 
@@ -64,7 +75,7 @@ https://www.w3schools.com/python/
 
 https://satr.codes/paths/OTZExaETAH/view
     '''
-    keyboard = get_starting_keyboard()
+    keyboard = get_learning_resources_keyboard()
     bot.send_message(message.chat.id, resp, reply_markup=keyboard)
 
 
@@ -81,7 +92,7 @@ https://youtu.be/eIrMbAQSU34
 
 https://www.w3schools.com/java/
     '''
-    keyboard = get_starting_keyboard()
+    keyboard = get_learning_resources_keyboard()
     bot.send_message(message.chat.id, resp, reply_markup=keyboard)
 
 
@@ -96,7 +107,7 @@ def soft_arch_resources(message):
 
 https://www.developertoarchitect.com/lessons/://www.w3schools.com/java/\n
     '''
-    keyboard = get_starting_keyboard()
+    keyboard = get_learning_resources_keyboard()
     bot.send_message(message.chat.id, resp, reply_markup=keyboard)
 
 
@@ -111,7 +122,7 @@ def modeling_resources(message):
 
 https://youtu.be/NU_1StN5Tkk
     '''
-    keyboard = get_starting_keyboard()
+    keyboard = get_learning_resources_keyboard()
     bot.send_message(message.chat.id, resp, reply_markup=keyboard)
 
 
