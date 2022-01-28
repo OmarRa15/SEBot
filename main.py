@@ -17,7 +17,7 @@ def start(message):
 
 
 def certifications_boolean(message):
-    return message.text.lower() == 'Major\'s Accredited Certification'
+    return message.text.lower() == 'major\'s accredited certification'
 
 
 @bot.message_handler(func=certifications_boolean)
@@ -27,7 +27,7 @@ def certifications(message):
 
 
 def resources_boolean(message):
-    return message.text.lower() == 'Learning Resources'
+    return message.text.lower() == 'learning resources'
 
 
 @bot.message_handler(func=resources_boolean)
