@@ -30,7 +30,7 @@ def resources_boolean(message):
     return message.text.lower() == 'Learning Resources'
 
 
-@bot.message_handler(func=certifications_boolean)
+@bot.message_handler(func=resources_boolean)
 def resources(message):
     log_message(message)
     bot.send_message(message.chat.id, "To be added 😁")
