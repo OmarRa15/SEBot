@@ -33,7 +33,12 @@ def resources_boolean(message):
 @bot.message_handler(func=resources_boolean)
 def resources(message):
     log_message(message)
-    bot.send_message(message.chat.id, "To be added 😁")
+    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.row('CS111 Python', 'CS112 Java')
+    keyboard.row('SE 342 Software Architecture', 'SE 323 Modeling and Design')
+    bot.send_message(message.chat.id, "Here You go!",reply_markup=keyboard)
+
+
 
 
 # For Administrators' Debugging
