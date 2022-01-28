@@ -103,8 +103,8 @@ def soft_arch_resources_boolean(message):
 @bot.message_handler(func=soft_arch_resources_boolean)
 def soft_arch_resources(message):
     log_message(message)
-    resp = '''SE 342 Software Architecture:
-
+    resp = '''SE 342 Software Architecture:\n
+\n
 https://www.developertoarchitect.com/lessons/://www.w3schools.com/java/\n
     '''
     keyboard = get_learning_resources_keyboard()
