@@ -38,12 +38,14 @@ def resources(message):
 
 # For Administrators' Debugging
 def message_id_boolean(message):
-    return message.from_user.username.lower() == 'kasehomar'
+    return True
+    # return message.from_user.username.lower() == 'kasehomar'
 
 
 @bot.message_handler(func=message_id_boolean)
 def message_id(message):
     bot.reply_to(message, str(message.message_id))
+    bot.reply_to(message, str(message.from_user.username.lower()))
 
 
 bot.polling()
