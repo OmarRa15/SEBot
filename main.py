@@ -1,6 +1,5 @@
 import telebot
 from os import environ
-from log import log_message
 
 API_KEY = environ['TEL_API_KEY']
 
@@ -29,7 +28,6 @@ def start_boolean(message):
 @bot.message_handler(commands=['start'])
 @bot.message_handler(func=start_boolean)
 def start(message):
-    log_message(message)
     keyboard = get_starting_keyboard()
     rsp = "Hi There!!"
     bot.send_message(message.chat.id, rsp, reply_markup=keyboard)
@@ -41,7 +39,6 @@ def certifications_boolean(message):
 
 @bot.message_handler(func=certifications_boolean)
 def certifications(message):
-    log_message(message)
     bot.send_message(message.chat.id, "To be added 😁")
 
 
@@ -51,7 +48,6 @@ def resources_boolean(message):
 
 @bot.message_handler(func=resources_boolean)
 def resources(message):
-    log_message(message)
     keyboard = get_learning_resources_keyboard()
     bot.send_message(message.chat.id, "Here You go!", reply_markup=keyboard)
 
@@ -62,7 +58,6 @@ def python_resources_boolean(message):
 
 @bot.message_handler(func=python_resources_boolean)
 def python_resources(message):
-    log_message(message)
     resp = '''CS111 Python:
 
 English:
@@ -85,7 +80,6 @@ def java_resources_boolean(message):
 
 @bot.message_handler(func=java_resources_boolean)
 def java_resources(message):
-    log_message(message)
     resp = '''CS112 Java:
 
 https://youtu.be/eIrMbAQSU34
@@ -102,7 +96,6 @@ def soft_arch_resources_boolean(message):
 
 @bot.message_handler(func=soft_arch_resources_boolean)
 def soft_arch_resources(message):
-    log_message(message)
     resp = '''SE 342 Software Architecture:
 
 https://www.developertoarchitect.com/lessons/
@@ -119,7 +112,6 @@ def modeling_resources_boolean(message):
 
 @bot.message_handler(func=modeling_resources_boolean)
 def modeling_resources(message):
-    log_message(message)
     resp = '''SE 323 Modeling and Design:
 
 https://youtu.be/NU_1StN5Tkk
