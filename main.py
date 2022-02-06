@@ -1,7 +1,7 @@
 import telebot
 from os import environ
 
-from IOption import IOption
+# from IOption import IOption
 
 API_KEY = environ['TEL_API_KEY']
 
