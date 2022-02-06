@@ -16,7 +16,7 @@ options = [o1, o2]
 
 def get_starting_keyboard():
     starting_keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    starting_keyboard.row(o1.optionName, o2.optionName)
+    starting_keyboard.row('o1.optionName', 'o2.optionName')
     return starting_keyboard
 
 
