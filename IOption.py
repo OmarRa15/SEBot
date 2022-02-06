@@ -3,10 +3,10 @@ from abc import ABC, abstractmethod
 
 class IOption(ABC):
     optionName = ''
-    optionCommand = ''
     author = ''
-    requirements = {}
+    setup = {}
+    options: [] = []
 
     @abstractmethod
-    def runIt(self):
-        print("Test")
+    def runIt(self, *args):
+        return "Test"
