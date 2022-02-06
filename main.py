@@ -67,7 +67,6 @@ https://youtu.be/_uQrJ0TkZlc
 https://www.w3schools.com/python/
 
 عربي:
-____
 https://satr.codes/paths/OTZExaETAH/view
     '''
     keyboard = get_learning_resources_keyboard()
