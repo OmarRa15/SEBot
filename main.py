@@ -7,11 +7,11 @@ API_KEY = environ['TEL_API_KEY']
 
 bot = telebot.TeleBot(API_KEY)
 
-o1 = IOption()
-o1.optionName = 't1'
-o2 = IOption()
-o2.optionName = 't2'
-options = [o1, o2]
+# o1 = IOption()
+# o1.optionName = 't1'
+# o2 = IOption()
+# o2.optionName = 't2'
+# options = [o1, o2]
 
 
 def get_starting_keyboard():
