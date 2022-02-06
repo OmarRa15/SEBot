@@ -15,7 +15,7 @@ def get_starting_keyboard():
 
 def get_learning_resources_keyboard():
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.row('CS111 Python', 'CS112 Java')
+    keyboard.row('CS111 Python_', 'CS112 Java')
     keyboard.row('SE 342 Software Architecture', 'SE 323 Modeling and Design')
     keyboard.row('Back to start!')
     return keyboard
