@@ -14,7 +14,7 @@ o2 = Say_Hi()
 
 def get_starting_keyboard():
     starting_keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    starting_keyboard.row('o1.opti1on', o2.optionName)
+    starting_keyboard.add('o1.opti2on', 'o3.opti2on', o2.optionName, row_width=2)
     return starting_keyboard
 
 
