@@ -1,17 +1,23 @@
 import telebot
 from os import environ
 
+from IOption import IOption
+
 API_KEY = environ['TEL_API_KEY']
 
 bot = telebot.TeleBot(API_KEY)
 
-options = []
+o1 = IOption()
+o1.optionName = 't1'
+o2 = IOption()
+o2.optionName = 't2'
+options = [o1, o2]
 
 
 def get_starting_keyboard():
     starting_keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    starting_keyboard.row('Major\'s Accredited Certification', 'Learning Resources')
-
+    for option in options:
+        starting_keyboard.row(option.optionName)
     return starting_keyboard
 
 
