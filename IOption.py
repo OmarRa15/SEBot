@@ -4,9 +4,14 @@ from abc import ABC, abstractmethod
 class IOption(ABC):
     optionName = ''
     author = ''
-    setup = {}
     options: [] = []
+
+    setup = {
+        'message': '',
+        'input': False,
+        'rerun': False
+    }
 
     @abstractmethod
     def runIt(self, *args):
-        return "Test"
+        return ''
