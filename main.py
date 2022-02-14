@@ -1,13 +1,7 @@
 from threading import Thread
 
-import telebot
-
 from Bot import Bot
 from DATA import bot
-
-from IOption import IOption
-from GPA_Calc import GPA_Calc
-
 
 # @bot.message_handler(commands=['start'])
 # def start(message):

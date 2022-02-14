@@ -1,4 +1,4 @@
-from GPA_Calc import GPA_Calc
+from Tools.GPA_Calc import GPA_Calc
 from IOption import IOption
 
 c = GPA_Calc()

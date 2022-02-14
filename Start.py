@@ -1,6 +1,8 @@
 from IOption import IOption
+from SE.SE import SE
 
-from GPA_Calc import GPA_Calc
+from Tools.GPA_Calc import GPA_Calc
+from Tools.Tools import Tools
 
 
 class Start(IOption):
@@ -17,9 +19,14 @@ class Start(IOption):
     def __init__(self):
         self.options: [] = []
 
-        _GPA_Calc = GPA_Calc()
-        _GPA_Calc.parent = Start
-        self.options.append(_GPA_Calc)
+        tools = Tools()
+        Tools.parent = Start
+
+        _SE = SE()
+        SE.parent = Start
+
+        self.options.append(tools)
+        self.options.append(_SE)
 
     def runIt(self, *args):
         return
