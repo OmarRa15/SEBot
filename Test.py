@@ -1,27 +1,22 @@
-import telebot
+from GPA_Calc import GPA_Calc
+from IOption import IOption
 
-# bot = telebot.TeleBot("api")
-from DATA import bot
-
-
-@bot.message_handler(content_types=['text'])
-def welcome(pm):
-    print('welcome')
-    sent_msg = bot.send_message(pm.chat.id, "Welcome to bot. what's your name?")
-    bot.register_next_step_handler(sent_msg, name_handler)  # Next message will call the name_handler function
-
-
-def name_handler(pm):
-    print('name_handler')
-    name = pm.text
-    sent_msg = bot.send_message(pm.chat.id, f"Your name is {name}. how old are you?")
-    bot.register_next_step_handler(sent_msg, age_handler, name)  # Next message will call the age_handler function
+c = GPA_Calc()
+currentState: IOption = c
+def next_handler(pm):
+    print("next_handler:", pm)
+    msg_text = pm.text
+    rsp = currentState.runIt(msg_text)
+    bot.send_message(pm.chat.id, rsp)
+    if currentState.setup.get('rerun', ''):
+        bot.register_next_step_handler(pm, next_handler)  # Next message will call the name_handler function
 
 
-def age_handler(pm, name):
-    print('age_handler')
-    age = pm.text
-    bot.send_message(pm.chat.id, f"Your name is {name}, and your age is {age}.")
-
-
-bot.polling()
+def runIt(message):
+    # sent_msg = bot.send_message(message.chat.id, currentState.setup.get('message', ''))
+    print(currentState.setup.get('message', ''))
+    if currentState.setup.get('input', ''):
+        next_handler()  # Next message will call the name_handler function
+    else:
+        rsp = currentState.runIt()
+        bot.send_message(message.chat.id, rsp)

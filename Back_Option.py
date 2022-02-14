@@ -1,9 +1,8 @@
-from abc import ABC, abstractmethod
+from IOption import IOption
 
 
-class IOption(ABC):
-    parent = None
-    optionName = ''
+class Back(IOption):
+    optionName = 'Back'
     author = ''
     options: [] = []
 
@@ -13,6 +12,5 @@ class IOption(ABC):
         'rerun': False
     }
 
-    @abstractmethod
-    def runIt(self, *args):
+    def runIt(self):
         return ''
